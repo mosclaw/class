@@ -22,6 +22,38 @@ pip install torch --index-url https://download.pytorch.org/whl/cpu
 
 Training takes about 10 seconds on a 4-core CPU.
 
+### Windows
+
+Install Python 3.10–3.13 from [python.org](https://www.python.org/downloads/)
+(the `python` and `python3` commands that come with Windows only open the
+Microsoft Store). Then, in PowerShell from this folder:
+
+```powershell
+py -3.12 -m venv .venv
+```
+
+```powershell
+.venv\Scripts\python.exe -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+```
+
+```powershell
+.venv\Scripts\python.exe moe.py
+```
+
+If you have [uv](https://docs.astral.sh/uv/), it can fetch Python for you
+instead of the python.org installer:
+
+```powershell
+uv venv --python 3.12 .venv
+```
+
+```powershell
+uv pip install --python .venv torch --index-url https://download.pytorch.org/whl/cpu
+```
+
+Then run `.venv\Scripts\python.exe moe.py` as above. A warning that NumPy
+failed to initialize is harmless; the script doesn't use NumPy.
+
 ## Expected output
 
 ```
